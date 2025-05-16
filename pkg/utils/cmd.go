@@ -31,7 +31,7 @@ func ExecCmd(command string) error {
 		log.Error(err.Error())
 		return err
 	} else {
-		log.Info("command: " + command)
+		//log.Info("command: " + command)
 	}
 	return nil
 }
