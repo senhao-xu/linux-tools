@@ -36,6 +36,5 @@ jobs:
         prerelease: false
         files: |
           linux-tools
-          source-code.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
