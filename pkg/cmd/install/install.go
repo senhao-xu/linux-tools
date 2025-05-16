@@ -10,5 +10,6 @@ func NewCmdInstall() *cobra.Command {
 	}
 
 	cmd.AddCommand(NewCmdDocker())
+	cmd.AddCommand(NewCmdOpenssh())
 	return cmd
 }

@@ -2,15 +2,15 @@ package install
 
 import (
 	"github.com/spf13/cobra"
-	"linux-tools/pkg/docker"
+	open_ssh "linux-tools/pkg/open-ssh"
 )
 
-func NewCmdDocker() *cobra.Command {
+func NewCmdOpenssh() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:   "docker",
-		Short: "Docker install command.",
+		Use:   "ssh",
+		Short: "Openssh install command.",
 		Run: func(cmd *cobra.Command, args []string) {
-			docker.Install(args)
+			open_ssh.Install()
 		},
 	}
 	return cmd

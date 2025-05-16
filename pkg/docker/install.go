@@ -5,8 +5,8 @@ import (
 	"linux-tools/pkg/utils"
 )
 
-func Install() {
+func Install(args []string) {
 	logrus.Infof("Install Docker.")
 
-	utils.ExecCmd("curl -fsSL https://get.docker.com | sudo bash -s docker && sudo systemctl enable --now docker")
+	utils.ExecCmd("curl -fsSL https://get.docker.com | sudo bash -s docker --mirror Aliyun && sudo systemctl enable --now docker")
 }
