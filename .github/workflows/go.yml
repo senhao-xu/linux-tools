@@ -10,12 +10,6 @@ on:
   # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
 
-# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
 
   build:
@@ -31,22 +25,8 @@ jobs:
     - name: Build
       run: go build -v ./...
 
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@master
+    - name: Release
+      uses: softprops/action-gh-release@v2
       with:
-        tag_name: latest
-        name: latest
-        body: linux-tools
-        draft: false
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload linux-tools as release assets
-      uses: softprops/action-gh-release@v2.1.0
-      with:
-        tag_name: latest
-        files: ${{ github.workspace }}/linux-tools
-        token: ${{ secrets.TOKEN }}
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.TOEKN }}
+        body_path: ./linux-tools
