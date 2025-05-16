@@ -27,7 +27,7 @@ jobs:
 
     - name: Release
       uses: softprops/action-gh-release@v2
-      if: github.ref_type == 'latest'
       with:
+        tag_name: latest
         token: ${{ secrets.TOEKN }}
         files: linux-tools
