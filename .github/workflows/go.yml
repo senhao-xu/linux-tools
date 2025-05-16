@@ -22,28 +22,22 @@ jobs:
     - name: Build
       run: go build -v ./...
 
-    - name: Upload Release Asset
-      uses: actions/upload-artifact@v3
-      with:
-        name: myapp
-        path: dist/myapp
-
-    - name: Create Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@master
       with:
         tag_name: latest
-        release_name: "latest"
+        name: latest
+        body: linux-tools
         draft: false
         prerelease: false
-
-    - name: Upload to Release
-      uses: actions/upload-release-asset@v1
       env:
         GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+    - name: Upload linux-tools as release assets
+      uses: softprops/action-gh-release@v2.1.0
       with:
-        upload_url: ${{ steps.create-release.outputs.upload_url }}
-        asset_path: linux-tools
-        asset_name: linux-tools
-        asset_content_type: application/octet-stream
+        tag_name: latest
+        files: ${{ github.workspace }}/linux-tools
+        token: ${{ secrets.TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.TOKEN }
