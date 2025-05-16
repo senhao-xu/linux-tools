@@ -23,13 +23,17 @@ jobs:
         go-version: '1.20'
 
     - name: Build
-      run: go build -v ./...
+      run: |
+        go build -v ./...
+        pwd
+        ls
+      
 
     - name: Release
       uses: softprops/action-gh-release@v2
       with:
         tag_name: latest
         token: ${{ secrets.TOEKN }}
-        files: ${{ github.workspace }}/linux-tools
+        files: linux-tools
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
