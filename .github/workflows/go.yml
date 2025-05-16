@@ -30,4 +30,6 @@ jobs:
       with:
         tag_name: latest
         token: ${{ secrets.TOEKN }}
-        files: linux-tools
+        files: ./linux-tools
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
