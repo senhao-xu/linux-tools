@@ -25,8 +25,6 @@ jobs:
     - name: Build
       run: |
         go build -o linux-tools main.go
-        pwd
-        ls
       
 
     - name: Release
@@ -34,8 +32,10 @@ jobs:
       with:
         tag_name: latest
         token: ${{ secrets.TOEKN }}
-        files: linux-tools
         draft: false
         prerelease: false
+        files: |
+          linux-tools
+          source-code.zip
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
