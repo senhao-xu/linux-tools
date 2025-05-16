@@ -34,7 +34,7 @@ jobs:
         draft: false
         prerelease: false
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Upload linux-tools as release assets
       uses: softprops/action-gh-release@v2.1.0
@@ -43,4 +43,4 @@ jobs:
         files: ${{ github.workspace }}/linux-tools
         token: ${{ secrets.TOKEN }}
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
