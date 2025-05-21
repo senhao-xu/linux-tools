@@ -1,5 +1,7 @@
 package docker
 
+// install docker and setting daemon
+
 import (
 	"github.com/sirupsen/logrus"
 	"linux-tools/pkg/utils"
